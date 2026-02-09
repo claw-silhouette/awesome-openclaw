@@ -252,7 +252,7 @@ cd openclaw
 | **Hetzner** | CX22 | €3.79 (~$4.15) | 2 | 4 GB | 40 GB SSD | 20 TB | EU (DE/FI) |
 | **Alibaba Cloud** | Simple App Server | $4 | 1 | 1 GB | Varies | Varies | 19 regions |
 | **Contabo** | Cloud VPS S | $4.95 | 4 | 8 GB | 50 GB SSD | Unlimited | US/EU/Asia |
-| **Hostinger** | KVM 1 | $4.99 | 1 | 4 GB | 50 GB NVMe | 4 TB | Global |
+| **[Hostinger](https://www.hostinger.com/uk/vps/docker/openclaw)** | KVM 1 | $4.99 | 1 | 4 GB | 50 GB NVMe | 4 TB | Global |
 | **Linode** | Shared 1GB | $5 | 1 | 1 GB | 25 GB | 1 TB | Global |
 | **Vultr** | High-Performance | $6 | 1 | 1 GB | 25 GB NVMe | 2 TB | 32 locations |
 | **DigitalOcean** | Basic Droplet | $6 | 1 | 1 GB | 25 GB | 1 TB | Global |
@@ -268,7 +268,7 @@ cd openclaw
 |----------|------|----------|------|-----|---------|-------|
 | **DigitalOcean** | Premium Droplet | $7 | 1 | 1 GB | 25 GB NVMe | 1-Click Deploy available |
 | **DigitalOcean** | Standard 2GB | $12 | 1 | 2 GB | 50 GB | Recommended for OpenClaw |
-| **Hostinger** | KVM 2 | $6.99 | 2 | 8 GB | 100 GB NVMe | Best Hostinger value |
+| **[Hostinger](https://www.hostinger.com/uk/vps/docker/openclaw)** | KVM 2 | $6.99 | 2 | 8 GB | 100 GB NVMe | Best Hostinger value |
 | **GCP** | e2-medium | ~$12 | 2 | 4 GB | 30 GB SSD | $300 free credit (90 days) |
 | **Azure** | B1ms VM | ~$15 | 1 | 2 GB | 32 GB | Enterprise compliance |
 | **Linode** | Dedicated 4GB | $36 | 2 (dedicated) | 4 GB | 40 GB | Consistent performance |
