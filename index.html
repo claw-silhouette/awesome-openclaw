@@ -62,7 +62,8 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg)
 .nav-logo{font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .nav-logo .claw{color:var(--primary)}
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.sidebar{position:fixed;top:80px;right:max(16px,calc((100vw - 1200px)/2 - 180px));width:180px;max-height:calc(100vh - 100px);overflow-y:auto;z-index:50;scrollbar-width:none}
+.sidebar{position:fixed;top:80px;right:max(16px,calc((100vw - 1200px)/2 - 180px));width:180px;max-height:calc(100vh - 100px);overflow-y:auto;z-index:50;scrollbar-width:none;opacity:0;pointer-events:none;transform:translateX(10px);transition:opacity .3s,transform .3s}
+.sidebar.visible{opacity:1;pointer-events:auto;transform:none}
 .sidebar::-webkit-scrollbar{display:none}
 .sidebar-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:8px;padding:0 8px}
 .sidebar a{display:block;color:var(--text-muted);text-decoration:none;font-size:.78rem;padding:5px 8px;border-radius:6px;border-left:2px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s,border-color .2s;font-weight:500;line-height:1.4}
@@ -279,7 +280,15 @@ else if(window.matchMedia('(prefers-color-scheme:light)').matches)setTheme('ligh
 $('#themeToggle').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
 
 const btt=$('#backToTop');
-window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
+const sidebarEl=$('#sidebar');
+window.addEventListener('scroll',()=>{
+btt.classList.toggle('show',window.scrollY>400);
+const heroBottom=document.querySelector('.hero');
+if(heroBottom){
+const rect=heroBottom.getBoundingClientRect();
+sidebarEl.classList.toggle('visible',rect.bottom<0);
+}
+},{passive:true});
 btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 const NAV_MAP={
