@@ -672,7 +672,6 @@ docker compose run --rm openclaw-cli security audit --deep
 - [Vectra - When Automation Becomes a Digital Backdoor](https://www.vectra.ai/blog/clawdbot-to-moltbot-to-openclaw-when-automation-becomes-a-digital-backdoor)
 - [Belgium CCB Advisory](https://ccb.belgium.be/advisories/warning-critical-vulnerability-openclaw-allows-1-click-remote-code-execution-when)
 - [University of Toronto Advisory](https://security.utoronto.ca/advisories/openclaw-vulnerability-notification/)
-- [n8n + OpenClaw Security White Paper](https://gripsy.com.au/research/n8n-openclaw-security-whitepaper.html) — Security analysis of n8n and OpenClaw integration patterns: credential isolation, webhook hardening, network architecture, and threat modeling. By Dr. Gaurav Caprihan.
 
 ---
 
@@ -980,10 +979,8 @@ Created by OpenClaw agent "Clawd Clawderberg" (built by Matt Schlicht, Cofounder
 | **Luma Events** | Search events, RSVP, sync to Google Calendar (no API needed) | [X/@bilbeny](https://x.com/bilbeny/status/2017046033759686929) |
 | **QMD Skill** | Cuts token usage by 95% | [X/@milesdeutscher](https://x.com/milesdeutscher/status/2018768974872449100) |
 | **Supermemory** | Unlimited memory for OpenClaw | ClawHub |
-| **Cognee** | Graph-based memory with auto-recall, semantic search | [GitHub](https://github.com/topoteretes/cognee-integrations/tree/main/integrations/openclaw) \| [npm](https://www.npmjs.com/package/@cognee/cognee-openclaw) |
 | **Claude Team** | Spawns visible terminal sessions instead of background | [X/@jlehman_](https://x.com/jlehman_/status/2008644506951053492) |
 | **ClawRouter** | Smart LLM router — save 78% on inference costs, 30+ models | [GitHub](https://github.com/BlockRunAI/ClawRouter) |
-| **Honcho** | Persistent cross-session memory with user modeling and dual-peer context | [ClawHub](https://clawhub.ai/ajspig/honcho-setup) \| [GitHub](https://github.com/plastic-labs/openclaw-honcho/tree/main/clawhub/honcho-setup) |
 | **Agent Sessions** | Session browser + analytics + limits tracker for Codex CLI, Claude Code, OpenCode, Gemini CLI (245 stars) | [GitHub](https://github.com/jazzyalex/agent-sessions) |
 | **Announcer** | House-wide TTS announcements via AirPlay speakers | [GitHub](https://github.com/odrobnik/announcer-skill) |
 | **GitHub Search Skills** | Deep GitHub project analysis and exploration | [GitHub](https://github.com/blessonism/openclaw-search-skills) |
@@ -1048,13 +1045,11 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 ### Financial
 - Calculate position sizes, manage stop-loss rules
 - Trade alert logging and automation
-- Integrate with on-chain token deployment and liquidity provisioning on Base (e.g., [PumpClaw](https://pumpclaw.com) via Uniswap V4)
 
 ### Creative
 - Voice notes to clean journal entries
 - Platform-specific content: X threads, LinkedIn posts, blog articles
 - Weekly meal planning in Notion (saves 1 hour/week)
-- **AI-Powered Daily Digest & Content Pipeline** — Production OpenClaw setup with 20+ cron jobs for automated news aggregation, multi-model content creation, social monitoring, and n8n webhook integration. By Dr. Gaurav Caprihan.
 
 ### Family
 - Monitor school WhatsApp groups, filter noise
@@ -1147,7 +1142,6 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 - [How Memory System Works](https://snowan.gitbook.io/study-notes/ai-blogs/openclaw-memory-system-deep-dive)
 - [centminmod/explain-openclaw](https://github.com/centminmod/explain-openclaw) - Multi-AI security analysis (73 files)
 - [Cron Jobs Automation Guide](https://zenvanriel.nl/ai-engineer-blog/openclaw-cron-jobs-proactive-ai-guide/)
-- [Beyond Babel: Bridging AI's Communication Gap with MCP, A2A, and ACP](https://medium.com/@gaurav.caprihan/beyond-babel-bridging-ais-communication-gap-with-mcp-a2a-and-acp-35e348bb4233) — Deep analysis of AI agent interoperability protocols with practical MCP server integration. By Dr. Gaurav Caprihan.
 
 ---
 
@@ -1187,7 +1181,6 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 | **Codecademy** | [Tutorial](https://www.codecademy.com/article/open-claw-tutorial-installation-to-first-chat-setup) | **Free** | 20-minute install guide |
 | **GitHub Course** | [kiankyars/openclawcourse](https://github.com/kiankyars/openclawcourse) | **Free** | 1-hour crash course |
 | **Udemy** | [Azure VM Course](https://www.udemy.com/course/openclaw/) | Paid | Azure Linux VM deployment |
-| **Gripsy Learn** | [OpenClaw Mastery](https://gripsy.com.au/learn/openclaw/) | Free/Paid | 11-module course: setup, skills, multi-model, security, automation. Quizzes & certificates. |
 
 ---
 
@@ -1356,7 +1349,6 @@ node --version                     # Must be 22+
 | [nearai/ironclaw](https://github.com/nearai/ironclaw) | OpenClaw-inspired implementation in Rust focused on privacy and security, by NEAR AI |
 | [SawyerHood/gitclaw](https://github.com/SawyerHood/gitclaw) | OpenClaw on GitHub Actions — every issue becomes an AI chat thread, no servers needed |
 | [BankrBot/openclaw-skills](https://github.com/BankrBot/openclaw-skills) | DeFi/crypto skill library — Polymarket, token trading, NFTs, on-chain messaging |
-| [clawd800/pumpclaw](https://github.com/clawd800/pumpclaw) | Token launcher for AI agents on Base — Uniswap V4 pools, on-chain registry, CLI and Farcaster deploy bot |
 | [SamurAIGPT/awesome-openclaw](https://github.com/SamurAIGPT/awesome-openclaw) | Community-curated list of OpenClaw resources, tools, and tutorials |
 | [nearai/private-ml-sdk](https://github.com/nearai/private-ml-sdk) | Run LLMs and agents on TEEs (NVIDIA GPU TEE, Intel TDX) for private inference |
 | [eltociear/awesome-molt-ecosystem](https://github.com/eltociear/awesome-molt-ecosystem) | Curated list of Molt ecosystem services — Moltbook, MoltCities, Molthunt, MoltMatch |
