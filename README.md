@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-  <strong>179,000+ stars | 29,600+ forks | 376 contributors | 9,191+ commits | MIT License</strong><br>
-  <em>Fastest-growing GitHub repo ever — 9K to 179K stars in 60 days (18x faster than Kubernetes)</em><br>
-  <em>Last updated: February 11, 2026</em>
+  <strong>187,000+ stars | 31,500+ forks | 508 contributors | MIT License</strong><br>
+  <em>Fastest-growing GitHub repo ever — 9K to 187K stars in 63 days (18x faster than Kubernetes)</em><br>
+  <em>Last updated: February 12, 2026</em>
 </p>
 
 <p align="center">
@@ -1324,7 +1324,7 @@ node --version                     # Must be 22+
 | **Mario Zechner** | Pi creator, security pen-tester | [@badlogicc](https://github.com/badlogicc) |
 | **Maxim Vovshin** | Blogwatcher skill | [@Hyaxia](https://github.com/Hyaxia) |
 | **Nacho Iacovino** | Location parsing | [@nachoiacovino](https://github.com/nachoiacovino) |
-| **376 contributors** | Community | [All contributors](https://github.com/openclaw/openclaw/graphs/contributors) |
+| **508 contributors** | Community | [All contributors](https://github.com/openclaw/openclaw/graphs/contributors) |
 
 ---
 
@@ -1332,7 +1332,7 @@ node --version                     # Must be 22+
 
 | Repository | Description |
 |------------|-------------|
-| [openclaw/openclaw](https://github.com/openclaw/openclaw) | Main repository (176K+ stars) |
+| [openclaw/openclaw](https://github.com/openclaw/openclaw) | Main repository (187K+ stars) |
 | [openclaw/clawhub](https://github.com/openclaw/clawhub) | Official skill directory |
 | [openclaw/lobster](https://github.com/openclaw/lobster) | Typed workflow runtime |
 | [cloudflare/moltworker](https://github.com/cloudflare/moltworker) | Cloudflare Workers adaptation |
@@ -1489,7 +1489,7 @@ OpenClaw has seen explosive adoption in China with support from major tech compa
 
 | Project | Stars | Age | Time to 100K Stars | Stars/Day (avg) |
 |---------|-------|-----|---------------------|-----------------|
-| **OpenClaw** | **179K** | **~3 months** | **~2 days** | **~2,983** |
+| **OpenClaw** | **187K** | **~3 months** | **~2 days** | **~2,968** |
 | React | 242K | 12 years | ~8 years | ~55 |
 | Linux | 216K | 15 years | ~12 years | ~39 |
 | Next.js | 137K | 9 years | ~8 years | ~41 |
