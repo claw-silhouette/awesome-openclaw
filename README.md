@@ -647,6 +647,15 @@ docker compose run --rm openclaw-cli security audit --deep
 - VirusTotal scanning now integrated
 - Always audit skills before installation
 
+### Security Tools
+
+| Tool | Description | Source |
+|------|-------------|--------|
+| **ClawSec** | Complete security skill suite by Prompt Security | [GitHub](https://github.com/prompt-security/clawsec) |
+| **ClawBands** | Security middleware — intercepts tool execution, human-in-the-loop approval for dangerous actions | [GitHub](https://github.com/SeyZ/clawbands) |
+| **ClawGuard** | Permission manifests, runtime enforcement, sandboxing, audit logging with hash-chaining | [GitHub](https://github.com/newtro/ClawGuard) |
+| **Claw-Hunter** | MDM-ready scripts to detect and monitor shadow OpenClaw agents across macOS/Linux/Windows endpoints | [GitHub](https://github.com/backslash-security/Claw-Hunter) |
+
 ### Security Resources
 
 - [centminmod/explain-openclaw](https://github.com/centminmod/explain-openclaw) - Deep security analysis (73 files, multi-AI)
@@ -817,6 +826,7 @@ Configure multiple agents with separate workspaces, personas, auth profiles, and
 | **iOS/Android** | Mobile | Beta | Camera, screen recording, notifications |
 | **[Expo OpenClaw Chat](https://github.com/brunobar79/expo-openclaw-chat)** | iOS/Android (Expo) | Available | React Native chat SDK for building native mobile OpenClaw clients |
 | **[OpenClawgotchi](https://github.com/turmyshevd/openclawgotchi)** | Raspberry Pi | Available | AI Tamagotchi with E-Ink face — agentic life-form hardware |
+| **[VisionClaw](https://github.com/sseanliu/VisionClaw)** | Meta Ray-Ban (iOS) | Available | Voice + vision + agentic actions via Gemini Live + OpenClaw (796 stars) |
 
 ### Monitoring & Dashboards
 
@@ -919,6 +929,9 @@ tar -czvf ~/openclaw_backup_$(date +%Y%m%d).tar.gz -C "$HOME" .openclaw
 | [**ClosedClaw**](https://github.com/asafelobotomy/ClosedClaw) | Desktop GUI fork | GTK users | GTK GUI + Ollama integration + enhanced lite mode |
 | [**OpenGlass**](https://github.com/DarlingtonDeveloper/OpenGlass) | Smart glasses | Wearable hardware | Meta Ray-Bans + Gemini Live + OpenClaw real-time AI |
 | [**Scallopbot**](https://github.com/tashfeenahmed/scallopbot) | Cost-optimized agent | Budget users | Multi-provider routing, budget controls, voice I/O |
+| [**VisionClaw**](https://github.com/sseanliu/VisionClaw) | Smart glasses | Wearable AR | Meta Ray-Ban + Gemini Live + OpenClaw, iOS/Swift (796 stars) |
+| [**Debot**](https://github.com/BotMesh/debot) | Rust lightweight | Cost-conscious | Rust+Python, auto conversation compaction, smart LLM router |
+| [**NanoClaw (original)**](https://github.com/qwibitai/nanoclaw) | Security-first | Apple container | 500 lines TypeScript, WhatsApp, Anthropic Agent SDK (7K+ stars) |
 
 ---
 
@@ -968,11 +981,12 @@ Created by OpenClaw agent "Clawd Clawderberg" (built by Matt Schlicht, Cofounder
 | **Supermemory** | Unlimited memory for OpenClaw | ClawHub |
 | **Claude Team** | Spawns visible terminal sessions instead of background | [X/@jlehman_](https://x.com/jlehman_/status/2008644506951053492) |
 | **ClawRouter** | Smart LLM router — save 78% on inference costs, 30+ models | [GitHub](https://github.com/BlockRunAI/ClawRouter) |
-| **Last30Days** | Research any topic across Reddit + X from the last 30 days, generates copy-paste-ready prompts (2.5K stars) | [GitHub](https://github.com/mvanhorn/last30days-skill) |
-| **X Research Skill** | Agentic X/Twitter research — thread following, deep-dives, sourced briefings (630 stars) | [GitHub](https://github.com/rohunvora/x-research-skill) |
 | **Agent Sessions** | Session browser + analytics + limits tracker for Codex CLI, Claude Code, OpenCode, Gemini CLI (245 stars) | [GitHub](https://github.com/jazzyalex/agent-sessions) |
 | **Announcer** | House-wide TTS announcements via AirPlay speakers | [GitHub](https://github.com/odrobnik/announcer-skill) |
 | **GitHub Search Skills** | Deep GitHub project analysis and exploration | [GitHub](https://github.com/blessonism/openclaw-search-skills) |
+| **Unbrowse** | Self-learning API skill generator — auto-discovers APIs from browser traffic, 100x faster than browser automation | [GitHub](https://github.com/lekt9/unbrowse-openclaw) |
+| **Foundry** | Self-writing meta-extension — learns how you work, researches docs, writes new capabilities into itself | [GitHub](https://github.com/lekt9/openclaw-foundry) |
+| **Supermemory (Official)** | Official Supermemory integration — perfect memory and recall, auto-stores conversations | [GitHub](https://github.com/supermemoryai/openclaw-supermemory) |
 
 ### Third-Party Platforms
 
@@ -1357,10 +1371,22 @@ node --version                     # Must be 22+
 | [jazzyalex/agent-sessions](https://github.com/jazzyalex/agent-sessions) | Session browser + analytics + limits tracker for Codex CLI, Claude Code, OpenCode, Gemini CLI (245 stars) |
 | [openclaw/barnacle](https://github.com/openclaw/barnacle) | Official OpenClaw companion bot — persistent utility bot |
 | [openclaw/trust](https://github.com/openclaw/trust) | Official open threat model with community-contributed risk assessments and mitigations |
-| [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | Research any topic across Reddit + X from the last 30 days, generates copy-paste prompts (2.5K stars) |
-| [rohunvora/x-research-skill](https://github.com/rohunvora/x-research-skill) | X/Twitter research skill — agentic search, thread following, deep-dives, sourced briefings (630 stars) |
 | [freema/openclaw-mcp](https://github.com/freema/openclaw-mcp) | MCP server bridging Claude.ai to self-hosted OpenClaw with OAuth 2.1 authentication |
 | [beam-cloud/airstore](https://github.com/beam-cloud/airstore) | The filesystem for AI agents — persistent agent storage layer (89 stars) |
+| [sseanliu/VisionClaw](https://github.com/sseanliu/VisionClaw) | Real-time AI assistant for Meta Ray-Ban smart glasses — voice + vision + agentic actions, iOS/Swift (796 stars) |
+| [qwibitai/nanoclaw](https://github.com/qwibitai/nanoclaw) | Original NanoClaw — 500 lines TypeScript, Apple containers for security, WhatsApp, Anthropic Agent SDK (7K+ stars) |
+| [SeyZ/clawbands](https://github.com/SeyZ/clawbands) | Security middleware — intercepts tool execution, human-in-the-loop approval for dangerous actions |
+| [newtro/ClawGuard](https://github.com/newtro/ClawGuard) | Permission manifests, runtime enforcement, sandboxing, and audit logging for OpenClaw skills |
+| [backslash-security/Claw-Hunter](https://github.com/backslash-security/Claw-Hunter) | MDM-ready detection and monitoring of shadow OpenClaw agents on managed endpoints |
+| [BotMesh/debot](https://github.com/BotMesh/debot) | Rust+Python lightweight alternative — auto conversation compaction, intelligent LLM router |
+| [lekt9/unbrowse-openclaw](https://github.com/lekt9/unbrowse-openclaw) | Self-learning API skill generator — auto-discovers APIs from browser traffic, 100x faster |
+| [lekt9/openclaw-foundry](https://github.com/lekt9/openclaw-foundry) | Self-writing meta-extension — learns how you work, writes new capabilities into itself (97 stars) |
+| [supermemoryai/openclaw-supermemory](https://github.com/supermemoryai/openclaw-supermemory) | Official Supermemory integration — perfect memory and recall for OpenClaw agents |
+| [clawdeckio/clawdeck](https://github.com/clawdeckio/clawdeck) | Open-source mission control dashboard — Kanban, agent monitoring, REST API |
+| [Ramsbaby/openclaw-self-healing](https://github.com/Ramsbaby/openclaw-self-healing) | 4-tier autonomous self-healing system — Claude Code as "emergency doctor" for Gateway |
+| [willbullen/openclaw-docker](https://github.com/willbullen/openclaw-docker) | Security-hardened Docker Compose — non-root, dropped caps, read-only rootfs, MCP isolation |
+| [coollabsio/openclaw](https://github.com/coollabsio/openclaw) | Auto-built Docker images by CoolLabs — multi-arch, nginx + basic auth, 6-hour rebuild cycle |
+| [hesamsheikh/awesome-openclaw-usecases](https://github.com/hesamsheikh/awesome-openclaw-usecases) | Real-life OpenClaw use cases — Reddit digests, X analysis, YouTube summaries, multi-agent coordination |
 
 ---
 
