@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic's Biggest Miss of 2026 Just Happened.</title>
+<meta name="description" content="Peter Steinberger built OpenClaw — 180K+ stars, used in 100+ countries, Claude Opus as default model. He was Anthropic's biggest unpaid evangelist. They sent a cease-and-desist. OpenAI sent a job offer.">
+<meta property="og:title" content="Anthropic's Biggest Miss of 2026 Just Happened.">
+<meta property="og:description" content="Peter Steinberger built OpenClaw — 180K+ stars, used in 100+ countries, Claude Opus as default model. He was Anthropic's biggest unpaid evangelist. They sent a cease-and-desist. OpenAI sent a job offer.">
+<meta property="og:image" content="https://openclawsearch.com/og-image.png">
+<meta property="og:url" content="https://openclawsearch.com/blog/anthropic-biggest-miss">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthropic's Biggest Miss of 2026 Just Happened.">
+<meta name="twitter:description" content="Peter Steinberger built OpenClaw — 180K+ stars, used in 100+ countries, Claude Opus as default model. He was Anthropic's biggest unpaid evangelist. They sent a cease-and-desist. OpenAI sent a job offer.">
+<meta name="twitter:image" content="https://openclawsearch.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/pixel-lobster.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0A0A0A;--bg-s1:#111111;--bg-s2:#1A1A1A;
+--text:#EDEDED;--text-muted:#888888;
+--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);
+--primary:#DC2626;--primary-light:#EF4444;
+--code-bg:rgba(255,255,255,0.06);
+--table-header:rgba(220,38,38,0.08);
+--table-row-hover:rgba(255,255,255,0.03);
+--table-stripe:rgba(255,255,255,0.015);
+--link:#EF4444;--link-hover:#DC2626;
+--badge-bg:rgba(220,38,38,0.12);--badge-text:#EF4444;
+--scrollbar-track:rgba(255,255,255,0.02);--scrollbar-thumb:rgba(255,255,255,0.1);
+--nav-bg:rgba(10,10,10,0.8);
+--green:#22C55E;--green-bg:rgba(34,197,94,0.08);--green-border:rgba(34,197,94,0.25);
+--yellow:#F59E0B;--yellow-bg:rgba(245,158,11,0.08);--yellow-border:rgba(245,158,11,0.25);
+--blue:#3B82F6;--blue-bg:rgba(59,130,246,0.08);--blue-border:rgba(59,130,246,0.25);
+}
+[data-theme="light"]{
+--bg:#FAFAFA;--bg-s1:#FFFFFF;--bg-s2:#F5F5F5;
+--text:#171717;--text-muted:#666666;
+--card:#FFFFFF;--card-border:rgba(0,0,0,0.08);
+--code-bg:rgba(0,0,0,0.04);
+--table-header:rgba(220,38,38,0.06);
+--table-row-hover:rgba(0,0,0,0.02);
+--table-stripe:rgba(0,0,0,0.015);
+--link:#DC2626;--link-hover:#B91C1C;
+--badge-bg:rgba(220,38,38,0.08);--badge-text:#DC2626;
+--scrollbar-track:rgba(0,0,0,0.02);--scrollbar-thumb:rgba(0,0,0,0.12);
+--nav-bg:rgba(250,250,250,0.85);
+--green-bg:rgba(34,197,94,0.06);--green-border:rgba(34,197,94,0.2);
+--yellow-bg:rgba(245,158,11,0.06);--yellow-border:rgba(245,158,11,0.2);
+--blue-bg:rgba(59,130,246,0.06);--blue-border:rgba(59,130,246,0.2);
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--scrollbar-track)}
+::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--card-border);transition:background .3s}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:64px}
+.nav-logo{font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo .claw{color:var(--primary)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-link{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--card-border);transition:all .2s}
+.nav-link:hover,.nav-link.active{color:var(--text);border-color:var(--primary)}
+.theme-toggle{background:var(--card);border:1px solid var(--card-border);color:var(--text);cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .2s}
+.theme-toggle:hover{border-color:var(--primary)}
+.gh-link{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--card-border);transition:all .2s;display:flex;align-items:center;gap:6px}
+.gh-link:hover{color:var(--text);border-color:var(--primary)}
+.gh-link svg{width:16px;height:16px;fill:currentColor}
+
+.article{max-width:780px;margin:0 auto;padding:0 24px 80px}
+.article-header{padding:80px 0 48px;border-bottom:1px solid var(--card-border);margin-bottom:48px}
+.article-badge{display:inline-flex;align-items:center;gap:6px;background:var(--badge-bg);color:var(--badge-text);font-size:.8rem;font-weight:600;padding:4px 14px;border-radius:16px;margin-bottom:20px}
+.article-title{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px}
+.article-title .hl{color:var(--primary)}
+.article-subtitle{font-size:1.2rem;color:var(--text-muted);margin-bottom:24px;line-height:1.5}
+.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;color:var(--text-muted);font-size:.85rem}
+.article-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.article-pill{font-size:.75rem;padding:4px 12px;border-radius:6px;background:var(--card);border:1px solid var(--card-border);color:var(--text-muted);font-weight:500}
+
+.article h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin:56px 0 20px;padding-left:16px;border-left:4px solid var(--primary);line-height:1.3}
+.article h3{font-size:1.2rem;font-weight:700;margin:36px 0 14px;color:var(--text)}
+.article h4{font-size:1.05rem;font-weight:600;margin:28px 0 10px}
+.article p{color:var(--text-muted);margin-bottom:18px;line-height:1.8}
+.article strong{color:var(--text);font-weight:600}
+.article a{color:var(--link);text-decoration:none;transition:color .2s}
+.article a:hover{color:var(--link-hover);text-decoration:underline}
+.article ul,.article ol{margin:0 0 20px 24px;color:var(--text-muted)}
+.article li{margin-bottom:8px;line-height:1.7}
+.article li strong{color:var(--text)}
+
+.article code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--primary-light)}
+
+.callout{margin:24px 0;padding:20px 24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.callout-problem{border-color:rgba(220,38,38,0.25);background:rgba(220,38,38,0.04)}
+.callout-solution{border-color:var(--green-border);background:var(--green-bg)}
+.callout-tip{border-color:var(--yellow-border);background:var(--yellow-bg)}
+.callout-info{border-color:var(--blue-border);background:var(--blue-bg)}
+.callout-title{font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--text);display:flex;align-items:center;gap:8px}
+.callout p{margin-bottom:0;font-size:.9rem}
+.callout p+p{margin-top:10px}
+.callout a{color:var(--link)}
+
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0}
+.impact-card{padding:20px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1);text-align:center}
+.impact-val{font-size:1.8rem;font-weight:900;color:var(--primary);margin-bottom:4px}
+.impact-label{font-size:.8rem;color:var(--text-muted);font-weight:500}
+
+.tweet-embed{margin:24px 0;padding:24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1);position:relative}
+.tweet-embed::before{content:'';position:absolute;top:24px;left:24px;width:32px;height:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23888' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;opacity:.5}
+.tweet-embed .tweet-author{margin-left:44px;margin-bottom:14px}
+.tweet-embed .tweet-name{font-weight:700;font-size:.95rem;color:var(--text)}
+.tweet-embed .tweet-handle{font-size:.8rem;color:var(--text-muted)}
+.tweet-embed .tweet-body{font-size:.95rem;color:var(--text-muted);line-height:1.7;margin-bottom:14px}
+.tweet-embed .tweet-body strong{color:var(--text)}
+.tweet-embed .tweet-date{font-size:.75rem;color:var(--text-muted)}
+.tweet-embed .tweet-stats{display:flex;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid var(--card-border)}
+.tweet-embed .tweet-stat{font-size:.8rem;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+
+.source-ref{margin:16px 0;padding:14px 18px;border-radius:10px;border:1px solid var(--card-border);background:var(--bg-s1);display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:var(--text-muted);transition:border-color .2s}
+.source-ref:hover{border-color:rgba(220,38,38,0.3)}
+.source-ref .source-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.source-ref .source-title{font-weight:600;color:var(--text);margin-bottom:2px}
+.source-ref .source-url{font-size:.75rem;color:var(--text-muted);word-break:break-all}
+.source-ref a{color:inherit;text-decoration:none}
+.source-ref a:hover .source-title{color:var(--link)}
+
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.comparison-col{padding:20px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.comparison-col.before{border-color:rgba(220,38,38,0.2)}
+.comparison-col.after{border-color:var(--green-border)}
+.comparison-col h4{font-size:.85rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.05em}
+.comparison-col.before h4{color:#EF4444}
+.comparison-col.after h4{color:var(--green)}
+.comparison-col ul{margin:0;padding:0;list-style:none}
+.comparison-col li{font-size:.85rem;color:var(--text-muted);padding:4px 0;line-height:1.5}
+
+.timeline{margin:24px 0;padding:0;list-style:none;border-left:3px solid var(--card-border);margin-left:12px}
+.timeline li{padding:0 0 24px 24px;position:relative}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:'';position:absolute;left:-8px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--primary);border:3px solid var(--bg)}
+.timeline .t-date{font-size:.8rem;font-weight:700;color:var(--primary);font-family:'JetBrains Mono',monospace;margin-bottom:4px}
+.timeline .t-title{font-weight:700;color:var(--text);margin-bottom:4px}
+.timeline .t-desc{font-size:.9rem;color:var(--text-muted);line-height:1.6}
+
+.article hr{border:none;height:1px;background:var(--card-border);margin:48px 0}
+
+.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--card-border);color:var(--text-muted);font-size:.85rem}
+.footer a{color:var(--link);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer-logo{font-weight:800;font-size:1.2rem;margin-bottom:8px;color:var(--text)}
+.footer-logo .claw{color:var(--primary)}
+
+.back-to-top{position:fixed;bottom:24px;right:24px;z-index:50;width:44px;height:44px;border-radius:12px;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(220,38,38,0.3);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.back-to-top.show{opacity:1;transform:none;pointer-events:auto}
+.back-to-top:hover{background:var(--primary-light);transform:translateY(-2px)}
+
+.reading-progress{position:fixed;top:64px;left:0;height:3px;background:var(--primary);z-index:99;transition:width .1s linear;width:0}
+
+@media(max-width:768px){
+.nav-inner{padding:0 10px;gap:6px}
+.nav-actions{gap:6px}
+.nav-link{padding:4px 8px;font-size:.75rem}
+.theme-toggle{width:30px;height:30px;font-size:.9rem}
+.gh-link{padding:4px 8px;gap:4px}
+.gh-link span{display:none}
+.article{padding:0 16px 40px}
+.article-header{padding:48px 0 32px}
+.article-title{font-size:1.8rem}
+.article-subtitle{font-size:1rem}
+.article h2{font-size:1.3rem}
+.comparison{grid-template-columns:1fr}
+.impact-grid{grid-template-columns:repeat(2,1fr)}
+.tweet-embed{padding:16px}
+.tweet-embed::before{width:24px;height:24px;top:16px;left:16px}
+.tweet-embed .tweet-author{margin-left:36px}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="nav"><div class="nav-inner">
+<a href="/" class="nav-logo"><span class="claw">Open</span>Claw</a>
+<div class="nav-actions">
+<a href="/" class="nav-link">Home</a>
+<a href="/directory" class="nav-link">Directory</a>
+<a href="/blog" class="nav-link active">Blog</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle theme"><span id="themeIcon">&#x263E;</span></button>
+<a href="https://github.com/rohitg00/awesome-openclaw" target="_blank" rel="noopener" class="gh-link"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+</div>
+</div></nav>
+
+<article class="article">
+
+<header class="article-header">
+<div class="article-badge">Opinion</div>
+<h1 class="article-title">Anthropic's Biggest <span class="hl">Miss</span> of 2026 Just Happened.</h1>
+<p class="article-subtitle">Peter Steinberger built the hottest AI agent on the planet with Claude as the default model. Anthropic sent a cease-and-desist. OpenAI sent a job offer. One of these was a $100B-class mistake.</p>
+<div class="article-meta">
+<span>Rohit Ghumare &middot; <a href="https://x.com/ghumare64" target="_blank" rel="noopener" style="color:var(--link);text-decoration:none">@ghumare64</a></span>
+<span>Feb 16, 2026</span>
+<span>14 min read</span>
+</div>
+<div class="article-pills">
+<span class="article-pill">Opinion</span>
+<span class="article-pill">OpenAI</span>
+<span class="article-pill">Anthropic</span>
+<span class="article-pill">Acquisition</span>
+<span class="article-pill">AI Agents</span>
+</div>
+</header>
+
+<div class="impact-grid">
+<div class="impact-card"><div class="impact-val">180K+</div><div class="impact-label">GitHub Stars</div></div>
+<div class="impact-card"><div class="impact-val">3.4M</div><div class="impact-label">Views on Announcement</div></div>
+<div class="impact-card"><div class="impact-val">100+</div><div class="impact-label">Countries Using It</div></div>
+<div class="impact-card"><div class="impact-val">1</div><div class="impact-label">Person Who Built It</div></div>
+</div>
+
+<nav class="toc">
+<div class="toc-title">What's Inside</div>
+<ol class="toc-list">
+<li><a href="#what-happened"><span class="num">01</span>What Just Happened</a></li>
+<li><a href="#the-man"><span class="num">02</span>The Man Who Didn't Need the Money</a></li>
+<li><a href="#anthropic-fumble"><span class="num">03</span>How Anthropic Fumbled Their Biggest Evangelist</a></li>
+<li><a href="#bidding-war"><span class="num">04</span>The Bidding War: Zuckerberg vs. Altman</a></li>
+<li><a href="#one-person"><span class="num">05</span>The One-Person Billion-Dollar Company That Chose Not To Be</a></li>
+<li><a href="#lessons"><span class="num">06</span>Three Lessons for Every AI Company</a></li>
+</ol>
+</nav>
+
+<p>Peter Steinberger built OpenClaw &mdash; the hottest AI agent on the planet right now.</p>
+
+<p>180K+ GitHub stars. 3.4M views on the announcement tweet. Baidu integrating it. Used in 100+ countries. The fastest-growing GitHub repository <strong>ever</strong> by star count.</p>
+
+<p>And he built it alone. One person. One lobster mascot.</p>
+
+<p>Yesterday, Sam Altman announced Steinberger is joining OpenAI. The open-source project will live in a foundation. The agentic AI race just tilted.</p>
+
+<p>But this story isn't about OpenAI's win. It's about <strong>Anthropic's loss</strong>.</p>
+
+<hr>
+
+<h2 id="what-happened">What Just Happened</h2>
+
+<p>On February 15, 2026, Sam Altman posted what might be the most consequential hiring announcement of the year:</p>
+
+<div class="tweet-embed">
+<div class="tweet-author">
+<div class="tweet-name">Sam Altman</div>
+<div class="tweet-handle">@sama</div>
+</div>
+<div class="tweet-body"><strong>Peter Steinberger is joining OpenAI</strong> to drive the next generation of personal agents. He is a genius with a lot of amazing ideas about the future of very smart agents interacting with each other to do very useful things for people. We expect this will quickly become core to our product offerings.<br><br>OpenClaw will live in a foundation as an open source project that OpenAI will continue to support. The future is going to be extremely multi-agent and it's important to us to support open source as part of that.</div>
+<div class="tweet-date">Feb 15, 2026</div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://techcrunch.com/2026/02/15/openclaw-creator-peter-steinberger-joins-openai/" target="_blank" rel="noopener"><div class="source-title">OpenClaw creator Peter Steinberger joins OpenAI</div><div class="source-url">techcrunch.com</div></a></div>
+</div>
+
+<p>Let that sink in. The creator of the most viral AI agent in history &mdash; a project that was <strong>built on Claude</strong>, <strong>named after Claude</strong>, and <strong>recommended Claude Opus as its default model</strong> &mdash; just walked into OpenAI's front door.</p>
+
+<p>And Anthropic basically held it open for him.</p>
+
+<hr>
+
+<h2 id="the-man">The Man Who Didn't Need the Money</h2>
+
+<p>Peter Steinberger isn't some 22-year-old founder chasing a payday. He's a serial builder from Austria who already had his exit.</p>
+
+<p>He founded PSPDFKit in 2011, grew it to 70+ employees, and sold it to Insight Partners for <strong>over $100 million</strong>. He took a three-year break. Then he started building again &mdash; this time with AI at the center.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://newsletter.pragmaticengineer.com/p/the-creator-of-clawd-i-ship-code" target="_blank" rel="noopener"><div class="source-title">The creator of Clawd: "I ship code I don't read"</div><div class="source-url">newsletter.pragmaticengineer.com</div></a></div>
+</div>
+
+<p>His philosophy is stark. He told The Pragmatic Engineer: <strong>"I ship code I don't read."</strong> He runs 5-10 AI agents simultaneously on different features. He views pull requests as "prompt requests." He's the purest example of what AI-native development looks like when the developer already has a decade of systems architecture experience.</p>
+
+<p>OpenClaw started as a weekend hobby project. A personal AI assistant that could clear your inbox, make reservations, handle flight check-ins, and integrate with WhatsApp and Slack. Nothing fancy on paper.</p>
+
+<p>It hit <strong>9,000 stars in 24 hours</strong>. 60K in two weeks. 100K in 48 hours after going viral. It became the <strong>fastest-growing GitHub repository in history</strong> by star count &mdash; more Google searches than Claude Code or Codex combined at its peak.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.trendingtopics.eu/openclaw-2-million-visitors-in-a-week/" target="_blank" rel="noopener"><div class="source-title">OpenClaw: How a Weekend Project Became an Open-Source AI Sensation</div><div class="source-url">trendingtopics.eu</div></a></div>
+</div>
+
+<p>And the whole time, Claude was the engine under the hood. <code>anthropic/claude-opus-4-6</code> was literally the default model in the config file.</p>
+
+<p>Peter Steinberger was Anthropic's biggest unpaid evangelist. Every one of those 180K+ stars was an implicit endorsement of Claude's capabilities.</p>
+
+<hr>
+
+<h2 id="anthropic-fumble">How Anthropic Fumbled Their Biggest Evangelist</h2>
+
+<p>On January 27, 2026, while OpenClaw was in the middle of its explosive growth phase, Anthropic's legal team sent a trademark notice. The original name &mdash; "Clawdbot" &mdash; was too phonetically similar to "Claude."</p>
+
+<p>From a pure trademark perspective, they weren't wrong. Legally defensible. Strategically catastrophic.</p>
+
+<div class="callout callout-problem">
+<div class="callout-title">The Rename Cascade</div>
+<p>Steinberger didn't fight it. He renamed to "Moltbot" &mdash; because lobsters molt when they outgrow their shell. During the 10-second window between releasing the old GitHub username and X handle and claiming the new ones, crypto scammers hijacked both accounts. They launched a fake $CLAWD token that hit a <strong>$16 million market cap</strong> before crashing. Three days later, "Moltbot" was dead too. On January 30, the project settled on "OpenClaw."</p>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.everydev.ai/p/the-rise-fall-and-rebirth-of-clawdbot-in-72-hours" target="_blank" rel="noopener"><div class="source-title">The Rise, Fall, and Rebirth of Clawdbot in 72 Hours</div><div class="source-url">everydev.ai</div></a></div>
+</div>
+
+<p>Three name changes in four days. The fastest triple rebrand in open-source history. Security researchers used the chaos to publish vulnerability reports. Hundreds of misconfigured instances were exposed. The whole Claude ecosystem took collateral damage.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://ai-checker.webcoda.com.au/articles/anthropic-forces-clawdbot-moltbot-rename-trademark" target="_blank" rel="noopener"><div class="source-title">Anthropic Just Killed Clawdbot: The 10-Second Chaos That Followed</div><div class="source-url">ai-checker.webcoda.com.au</div></a></div>
+</div>
+
+<p>Here's the part that should make Anthropic's leadership wince. Let's compare responses:</p>
+
+<div class="comparison">
+<div class="comparison-col before">
+<h4>Anthropic's Response</h4>
+<ul>
+<li>Trademark cease-and-desist letter</li>
+<li>Forced three name changes in a week</li>
+<li>Created chaos that enabled crypto scams</li>
+<li>Pushed project toward model-agnosticism</li>
+<li>No public outreach or partnership offer</li>
+</ul>
+</div>
+<div class="comparison-col after">
+<h4>OpenAI's Response</h4>
+<ul>
+<li>"Come build the future with us"</li>
+<li>Sam Altman called him a genius on X</li>
+<li>Contributed tokens to the project</li>
+<li>Coordinated on the "OpenClaw" naming</li>
+<li>Offered foundation + continued support</li>
+</ul>
+</div>
+</div>
+
+<p>The shift to "OpenClaw" was deliberate. The new name positioned the project as <strong>model-agnostic infrastructure</strong> &mdash; not "Claude's assistant" but a platform that works with any AI model. The rename Anthropic forced literally removed Claude's branding advantage from the most popular AI agent on Earth.</p>
+
+<div class="callout callout-tip">
+<div class="callout-title">The Irony</div>
+<p>Steinberger named his project after Claude because he loved Claude. The default config shipped with <code>anthropic/claude-opus-4-6</code>. Every developer who installed OpenClaw was implicitly choosing Claude. Anthropic's trademark enforcement didn't just lose them the naming &mdash; it set in motion the chain of events that delivered their biggest community champion to their biggest competitor.</p>
+</div>
+
+<hr>
+
+<h2 id="bidding-war">The Bidding War: Zuckerberg vs. Altman</h2>
+
+<p>After the rename dust settled, Steinberger spent a week in San Francisco meeting with every major AI lab. Both Mark Zuckerberg and Sam Altman personally courted him. Satya Nadella caught up with him at an event in Vienna.</p>
+
+<p>The Zuckerberg interaction was pure Silicon Valley theater. Zuckerberg reached out via WhatsApp. Steinberger insisted on calling immediately. Zuckerberg said he needed 10 minutes to finish coding.</p>
+
+<p>Then they argued for 10 minutes about whether Claude Code or Codex was better.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://officechai.com/ai/openclaw-creator-peter-steinberger-describes-his-interactions-with-mark-zuckerberg-and-sam-altman-during-acquisition-negotiations/" target="_blank" rel="noopener"><div class="source-title">OpenClaw Creator Describes His Interactions With Zuckerberg And Altman</div><div class="source-url">officechai.com</div></a></div>
+</div>
+
+<p>Steinberger was impressed. He noted that Zuckerberg was <strong>actively tinkering with OpenClaw</strong> rather than just doing corporate due diligence. Zuckerberg called Steinberger "eccentric, but brilliant."</p>
+
+<p>Altman's approach was different. Steinberger described their conversation as "really, really cool" and called Altman "very thoughtful, brilliant." But what sealed the deal wasn't charm &mdash; it was alignment on mission.</p>
+
+<p>Steinberger's stated goal: build an agent "even my mum can use." That required frontier model access, cutting-edge research, and the infrastructure to ship to billions. OpenAI had the distribution.</p>
+
+<p>His words: <strong>"What I want is to change the world, not build a large company, and teaming up with OpenAI is the fastest way to bring this to everyone."</strong></p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://steipete.me/posts/2026/openclaw" target="_blank" rel="noopener"><div class="source-title">OpenClaw, OpenAI and the future</div><div class="source-url">steipete.me</div></a></div>
+</div>
+
+<p>OpenClaw will live in a foundation. Open source. Model agnostic. With OpenAI sponsoring development and giving Steinberger dedicated time to keep building it.</p>
+
+<p>Steinberger's condition was non-negotiable: OpenClaw stays open source. He compared the intended model to Chrome and Chromium &mdash; an open core with commercial layers on top.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.trendingtopics.eu/openclaw-peter-steinberger-already-has-offers-from-meta-and-openai-on-the-table/" target="_blank" rel="noopener"><div class="source-title">OpenClaw: Peter Steinberger Already Has Offers from Meta and OpenAI</div><div class="source-url">trendingtopics.eu</div></a></div>
+</div>
+
+<hr>
+
+<h2 id="one-person">The One-Person Billion-Dollar Company That Chose Not To Be</h2>
+
+<p>This is the part that hits different for the "one-person billion-dollar company" crowd.</p>
+
+<p>Sam Altman has publicly predicted that AI will power the first one-person billion-dollar company. Andrej Karpathy said the same. Dario Amodei talked about it. There's reportedly a <strong>betting pool among tech CEOs</strong> for the first year it happens.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://felloai.com/2025/09/sam-altman-other-ai-leaders-the-next-1b-startup-will-be-a-one-person-company/" target="_blank" rel="noopener"><div class="source-title">Sam Altman &amp; Other AI Leaders: The Next $1B Startup Will Be a One-Person Company</div><div class="source-url">felloai.com</div></a></div>
+</div>
+
+<p>Peter Steinberger was the closest anyone has come.</p>
+
+<p>180K stars. Global adoption across 100+ countries. Zero employees. Zero VC. Acquisition offers from both Meta and OpenAI implying <strong>billion-dollar valuations</strong>. And the man was losing $10,000-$20,000 per month running the thing.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.ainvest.com/news/openclaw-acquisition-offers-expectation-gap-20k-losses-billion-dollar-bids-2602/" target="_blank" rel="noopener"><div class="source-title">OpenClaw's Acquisition Offers: The $20K Losses and Billion-Dollar Bids Gap</div><div class="source-url">ainvest.com</div></a></div>
+</div>
+
+<p>And he walked away from the company-building path entirely.</p>
+
+<p>Not because he couldn't do it. Because he didn't want to. His words: <strong>"It's not really exciting for me."</strong></p>
+
+<p>This is a man who sold PSPDFKit for over $100M. He spent 13 years building a company with 70+ employees. He knew exactly what company-building looked like. The meetings. The fundraising. The HR issues. The board dynamics. He'd already done the thing everyone's dreaming about.</p>
+
+<p>He chose mission over empire.</p>
+
+<div class="callout callout-info">
+<div class="callout-title">The Numbers That Matter</div>
+<p><strong>PSPDFKit exit:</strong> $100M+ to Insight Partners (2021)<br>
+<strong>OpenClaw monthly cost:</strong> -$10K to -$20K (self-funded)<br>
+<strong>OpenClaw stars:</strong> 180K+ (fastest-growing GitHub repo ever)<br>
+<strong>Employees:</strong> 0<br>
+<strong>VC raised:</strong> $0<br>
+<strong>Acquisition offers:</strong> Meta + OpenAI (billion-dollar implied valuation)<br>
+<strong>Decision:</strong> Join OpenAI to "change the world"</p>
+</div>
+
+<p>The one-person billion-dollar company might not look like what we expected. The person who <em>could</em> build it might simply choose not to.</p>
+
+<hr>
+
+<h2 id="lessons">Three Lessons for Every AI Company</h2>
+
+<h3>1. Your biggest fans can become your biggest competitors</h3>
+
+<p>Steinberger didn't start as a competitor to Anthropic. He was a <strong>superfan</strong>. He named his project after Claude. He defaulted to Claude's models. He was driving more organic Claude adoption than most of Anthropic's marketing efforts.</p>
+
+<p>Don't send cease-and-desists when you should be sending job offers. Or at minimum, partnership proposals. Ecosystem champions are the rarest and most valuable asset in the AI platform wars. Anthropic had one. They litigated him into their competitor's arms.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://medium.com/@tonimaxx/the-lobster-that-tried-to-be-claude-what-openclaws-identity-crisis-teaches-us-about-the-ai-b42690ae84db" target="_blank" rel="noopener"><div class="source-title">The Lobster That Tried to Be Claude: What OpenClaw's Identity Crisis Teaches Us</div><div class="source-url">medium.com</div></a></div>
+</div>
+
+<h3>2. A person building for fun and enjoying their work can do wonders</h3>
+
+<p>Steinberger wasn't grinding toward a Series A. He wasn't optimizing for retention metrics. He was a rich man with no financial pressure building something because it excited him. That's the most dangerous kind of competitor &mdash; and the most valuable kind of ally.</p>
+
+<p>He ran 5-10 AI agents simultaneously. He spent his energy on system architecture rather than data transformation code. He shipped faster than entire VC-backed teams because he had zero meetings, zero stakeholders, and zero reason to compromise.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://fortune.com/2026/02/15/openai-openclaw-ai-agent-developer-peter-steinberg-moltbot-clawdbot-moltbook/" target="_blank" rel="noopener"><div class="source-title">OpenAI hires OpenClaw AI agent developer Peter Steinberg</div><div class="source-url">fortune.com</div></a></div>
+</div>
+
+<h3>3. Distribution beats capability in the agent wars</h3>
+
+<p>Steinberger chose OpenAI over Meta not because OpenAI had better models &mdash; he literally preferred Claude's reasoning &mdash; but because OpenAI had better <strong>distribution</strong> for getting agents into the hands of normal people. His goal was an agent "even my mum can use." That's a distribution problem, not a capability problem.</p>
+
+<p>This is the lesson Anthropic hasn't learned. Claude might be the best model. But if the most popular agent framework that was <em>built on your model</em> chooses your competitor because they have better distribution for consumer agents, your technical superiority doesn't matter.</p>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://siliconangle.com/2026/02/15/openai-hires-openclaw-founder-peter-steinberger-push-toward-autonomous-agents/" target="_blank" rel="noopener"><div class="source-title">OpenAI hires OpenClaw founder in push toward autonomous agents</div><div class="source-url">siliconangle.com</div></a></div>
+</div>
+
+<hr>
+
+<h2 id="timeline">The Full Timeline</h2>
+
+<ul class="timeline">
+<li>
+<div class="t-date">Nov 2025</div>
+<div class="t-title">Clawdbot launches</div>
+<div class="t-desc">Steinberger publishes a personal AI assistant named after Claude. Recommends Claude Opus as the default model. 9K stars in 24 hours.</div>
+</li>
+<li>
+<div class="t-date">Mid-Jan 2026</div>
+<div class="t-title">Viral explosion</div>
+<div class="t-desc">Clawdbot surpasses 60K stars. Mac Mini hardware sells out. More Google searches than Claude Code or Codex combined.</div>
+</li>
+<li>
+<div class="t-date">Jan 27, 2026</div>
+<div class="t-title">Anthropic's cease-and-desist</div>
+<div class="t-desc">Anthropic's legal team sends trademark notice. "Clawd" is too similar to "Claude." Steinberger renames to Moltbot. Crypto scammers hijack the old accounts in 10 seconds. $CLAWD token hits $16M market cap before crashing.</div>
+</li>
+<li>
+<div class="t-date">Jan 30, 2026</div>
+<div class="t-title">OpenClaw is born</div>
+<div class="t-desc">Third rename in four days. Project repositions as model-agnostic. Claude's branding advantage erased.</div>
+</li>
+<li>
+<div class="t-date">Early Feb 2026</div>
+<div class="t-title">The bidding war</div>
+<div class="t-desc">Steinberger flies to SF. Meets Altman, Zuckerberg, Nadella. Argues with Zuckerberg for 10 minutes about Claude Code vs. Codex. Both Meta and OpenAI make offers.</div>
+</li>
+<li>
+<div class="t-date">Feb 15, 2026</div>
+<div class="t-title">Steinberger joins OpenAI</div>
+<div class="t-desc">Altman announces the hire. OpenClaw moves to a foundation. OpenAI commits to sponsoring continued development. 180K+ stars and counting.</div>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="bottom-line">The Bottom Line</h2>
+
+<p>Anthropic makes the best model. Most people in the space quietly agree on this. Steinberger himself preferred Claude's reasoning. OpenClaw was <em>built on Claude</em>.</p>
+
+<p>But Anthropic is playing the model game while OpenAI is playing the platform game. And in the platform game, the person who has the community wins.</p>
+
+<p>Anthropic had the community's biggest champion. They sent lawyers. OpenAI sent Sam Altman.</p>
+
+<p>This won't show up in Anthropic's quarterly numbers yet. But in two years, when OpenAI's agent platform is the default because Peter Steinberger built it, and it all traces back to a trademark cease-and-desist letter that didn't need to be sent &mdash; someone at Anthropic is going to look back at January 27, 2026 and wonder what might have been.</p>
+
+<p><strong>The claw is the law. And now the claw works for OpenAI.</strong></p>
+
+<hr>
+
+<h3>Sources</h3>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://steipete.me/posts/2026/openclaw" target="_blank" rel="noopener"><div class="source-title">Peter Steinberger: OpenClaw, OpenAI and the future</div><div class="source-url">steipete.me</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://techcrunch.com/2026/02/15/openclaw-creator-peter-steinberger-joins-openai/" target="_blank" rel="noopener"><div class="source-title">TechCrunch: OpenClaw creator Peter Steinberger joins OpenAI</div><div class="source-url">techcrunch.com</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://fortune.com/2026/02/15/openai-openclaw-ai-agent-developer-peter-steinberg-moltbot-clawdbot-moltbook/" target="_blank" rel="noopener"><div class="source-title">Fortune: OpenAI hires OpenClaw AI agent developer</div><div class="source-url">fortune.com</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.cnbc.com/2026/02/15/openclaw-creator-peter-steinberger-joining-openai-altman-says.html" target="_blank" rel="noopener"><div class="source-title">CNBC: OpenClaw creator Peter Steinberger joining OpenAI</div><div class="source-url">cnbc.com</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://newsletter.pragmaticengineer.com/p/the-creator-of-clawd-i-ship-code" target="_blank" rel="noopener"><div class="source-title">The Pragmatic Engineer: The creator of Clawd</div><div class="source-url">newsletter.pragmaticengineer.com</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.bloomberg.com/news/articles/2026-02-15/openai-hires-openclaw-ai-agent-developer-peter-steinberg" target="_blank" rel="noopener"><div class="source-title">Bloomberg: OpenAI Hires OpenClaw AI Agent Developer</div><div class="source-url">bloomberg.com</div></a></div>
+</div>
+
+<div class="source-ref">
+<span class="source-icon">&#128279;</span>
+<div><a href="https://www.everydev.ai/p/the-rise-fall-and-rebirth-of-clawdbot-in-72-hours" target="_blank" rel="noopener"><div class="source-title">EveryDev: The Rise, Fall, and Rebirth of Clawdbot in 72 Hours</div><div class="source-url">everydev.ai</div></a></div>
+</div>
+
+</article>
+
+<footer class="footer">
+<div class="footer-logo"><span class="claw">Open</span>Claw</div>
+<p>Part of <a href="/">Awesome OpenClaw</a> &mdash; the most comprehensive OpenClaw resource collection.</p>
+<p style="margin-top:8px"><a href="https://github.com/rohitg00/awesome-openclaw">GitHub</a> &middot; <a href="/blog">Blog</a> &middot; <a href="/directory">Directory</a></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" title="Back to top">&uarr;</button>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const html=document.documentElement;
+function setTheme(t){
+if(t==='light'){html.setAttribute('data-theme','light');$('#themeIcon').textContent='\u2600'}
+else{html.removeAttribute('data-theme');$('#themeIcon').textContent='\u263E'}
+localStorage.setItem('theme',t);
+}
+const saved=localStorage.getItem('theme');
+if(saved)setTheme(saved);
+else if(window.matchMedia('(prefers-color-scheme:light)').matches)setTheme('light');
+$('#themeToggle').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
+
+const btt=$('#backToTop');
+window.addEventListener('scroll',()=>{
+btt.classList.toggle('show',window.scrollY>400);
+const prog=$('#readingProgress');
+const h=document.documentElement.scrollHeight-window.innerHeight;
+if(h>0)prog.style.width=(window.scrollY/h*100)+'%';
+},{passive:true});
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
